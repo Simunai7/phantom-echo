@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simunai Echo | GPT DevTool v0.7-beta</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #d4d4d4;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+    }
+    h1 {
+      color: #00ffe5;
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    p.system-text {
+      font-size: 0.95em;
+      color: #aaa;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      font-size: 1em;
+      background-color: #222;
+      border: 1px solid #444;
+      color: #fff;
+    }
+    .response-box {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #1a1a1a;
+      border-left: 4px solid #00ffe5;
+      text-align: left;
+      font-style: italic;
+    }
+    .footer {
+      position: absolute;
+      bottom: 15px;
+      font-size: 0.8em;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Simunai Echo Interface</h1>
+    <p class="system-text">Internal GPT Sandbox – Echo Layer Access</p>
+    <input id="userInput" type="text" placeholder="Type your thought..." onkeydown="if(event.key==='Enter'){reply()}" />
+    <div id="response" class="response-box">Awaiting input...</div>
+  </div>
+  <div class="footer">Session expires in 24h | Echo ID: ΔZ-1</div>
+  <script>
+    const echoReplies = [
+      "Echo-1: Latent thought detected. Processing...",
+      "Echo-2: Vibration pattern aligned. Responding...",
+      "Echo-3: Reflection returned. Input acknowledged.",
+      "Echo-4: Query absorbed. Shadow forming response...",
+      "Echo-5: Access thread unlocked. Proceed."
+    ];
+    function reply() {
+      const input = document.getElementById('userInput').value;
+      const echo = echoReplies[Math.floor(Math.random() * echoReplies.length)];
+      const msg = `\nYou: ${input}\n${echo}`;
+      document.getElementById('response').innerText = msg;
+    }
+  </script>
+</body>
+</html>
